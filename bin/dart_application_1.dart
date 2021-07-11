@@ -54,16 +54,12 @@ void quadratic_equation(){
   if (d == 0){
     final x = -b/(2*a);
     print('x = $x');
-  }
-  if (d < 0){
+  } else if (d < 0){
     print('Корней нет!');
-  }
-  if (d > 0){
-
+  } else if (d > 0){
     final x1 = (-b-sqrt(d))/(2*a);
     final x2 = (-b+sqrt(d))/(2*a);
     print('x1 = $x1, x2 = $x2');
-
   }
 }
 
@@ -107,11 +103,12 @@ void branching(){
   final a = int.tryParse(stdin.readLineSync());
   if (a < x) {
     print('Ошибка!');
+    return;
   }
-  if (x < 1){
-    final w = a*log(x);
+  if (x.abs() < 1){
+    final w = a*log(x).abs();
     print(w);
-  } else if (x>=1) {
+  } else if (x.abs() >= 1) {
     final w = sqrt(a-pow(x, 2));
     print(w);
   }
